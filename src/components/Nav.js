@@ -37,7 +37,7 @@ export default function Nav() {
             <button className="nav__burger" onClick={handleClick}>
                 <MenuIcon />
             </button>
-            <img className="nav__logo" alt="logo"></img>
+            <img className="nav__logo" alt=""></img>
             <nav className="nav__links">
                 <a href="#" className="nav__link">Acceuil</a>
                 <a href="#" className="nav__link">Serie</a>
