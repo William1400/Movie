@@ -4,10 +4,17 @@ import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import InfoIcon from '@material-ui/icons/Info';
 import requests from "./data/Requests";
 import axios from 'axios';
+import QuickView from './QuickView';
 
-function Banner() {
+export default function Banner() {
 
     const [movie, setMovie] = useState([]);
+    const [popup, setPopup] = useState(false);
+
+    function handleClickPopup() {
+
+        popup ? setPopup(false) : setPopup(true);
+    }
 
     useEffect(() => {
 
@@ -35,10 +42,12 @@ function Banner() {
 
     const bannerStyle = {
 
-        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie.backdrop_path}")`,
+        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
         backgroundSize: "cover",
         backgroundPosition: "center center",
     }
+
+    console.log(popup);
 
     return (
         <header className="banner" style={bannerStyle}>
@@ -53,13 +62,18 @@ function Banner() {
                     <button className="banner__button banner__button--play">
                         <PlayArrowIcon/> Lecture
                     </button>
-                    <button className="banner__button">
+                    <button className="banner__button" onCLick={handleClickPopup} >
                         <InfoIcon/>Info
                     </button>
                 </div>
             </div>
+            <QuickView 
+                bannerStyle={bannerStyle} 
+                movie={movie} 
+                popup={handleClickPopup} 
+                popupStatut={popup} 
+            />
         </header>
     )
 }
 
-export default Banner;

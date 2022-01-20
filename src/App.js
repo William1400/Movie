@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import Banner from "./components/Banner";
 import Row from './components/Row';
 import requests from './components/data/Requests';
+import QuickView from './components/QuickView';
 
 export default function App() {
     
@@ -12,7 +13,7 @@ export default function App() {
         <div className="App">
             <Nav />
             <Banner />
-            <Row title="Tendances du moment" fetchUrl={requests.fetchTopRated} />
+            <Row title="Tendances du moment" fetchUrl={requests.fetchTopRated} isPoster={true} />
             <Row title="Comedies" fetchUrl={requests.fetchComedyMovies} />
             <Row  title="Actions" fetchUrl={requests.fetchActionMovies} />
             <Row title="Romance" fetchUrl={requests.fetchHorrorMovies} />

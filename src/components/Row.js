@@ -2,10 +2,11 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import "./Row.scss";
 
-export default function Row({title, fetchUrl}) {
+export default function Row({title, fetchUrl, isPoster}) {
     
+    const url = "https://image.tmdb.org/t/p/original/";
     const [movies, setMovies] = useState([]);
-
+    
     useEffect(() => {
 
         async function fetchData() {
@@ -28,11 +29,19 @@ export default function Row({title, fetchUrl}) {
             <div className="row__images">
                 {movies.map((movie) => (
                     <div key={movie.id}>
-                        <img 
-                            src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
-                            alt="{movie?.title || movie?.name || movie?.original_title}" 
-                            className="row__image">
-                        </img>
+                        {isPoster ? (
+                            <img 
+                                src={`${url}/${movie.poster_path}`}
+                                alt="{movie?.title || movie?.name || movie?.original_title}" 
+                                className="row__image">
+                            </img>
+                        ) : (
+                              <img 
+                              src={`${url}/${movie.backdrop_path}`}
+                              alt="{movie?.title || movie?.name || movie?.original_title}" 
+                              className="row__image">
+                          </img>
+                        )}
                     </div>
                 ))}
                 
