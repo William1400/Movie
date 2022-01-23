@@ -1,4 +1,4 @@
-import './App.scss';
+import '../src/styles/App.scss';
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import Banner from "./components/Banner";
@@ -15,15 +15,12 @@ export default function App() {
             <Banner />
             <Row title="Tendances du moment" fetchUrl={requests.fetchTopRated} isPoster={true} />
             <Row title="Comedies" fetchUrl={requests.fetchComedyMovies} />
-            <Row  title="Actions" fetchUrl={requests.fetchActionMovies} />
+            <Row title="Actions" fetchUrl={requests.fetchActionMovies} />
             <Row title="Romance" fetchUrl={requests.fetchHorrorMovies} />
             <Row title="Horreur" fetchUrl={requests.fetchRomanceMovies} />
             <Row title="Documentaire" fetchUrl={requests.fetchDocumentaries} />
-        
-            {/* {video} */}
-            {/* {quick view} */}
+            <QuickView />
             <Footer />
-            {/* <Requests /> */}
         </div>
     );
 }

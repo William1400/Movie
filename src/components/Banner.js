@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import "./Banner.scss";
+import "../styles/Banner.scss";
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import InfoIcon from '@material-ui/icons/Info';
 import requests from "./data/Requests";
@@ -23,6 +23,7 @@ export default function Banner() {
             const request = await axios.get(requests.fetchTrending);
 
             setMovie(
+               
                 request.data.results[
 
                     Math.floor(Math.random() * request.data.results.length - 1)
@@ -62,7 +63,7 @@ export default function Banner() {
                     <button className="banner__button banner__button--play">
                         <PlayArrowIcon/> Lecture
                     </button>
-                    <button className="banner__button" onCLick={handleClickPopup} >
+                    <button className="banner__button" onClick={handleClickPopup} >
                         <InfoIcon/>Info
                     </button>
                 </div>

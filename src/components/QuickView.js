@@ -1,5 +1,5 @@
 import React from 'react';
-import "./QuickView.scss";
+import "../styles/QuickView.scss";
 import CancelIcon from '@material-ui/icons/Cancel';
 
 export default function QuickView({bannerStyle, movie, popup, popupStatut}) {
@@ -10,11 +10,12 @@ export default function QuickView({bannerStyle, movie, popup, popupStatut}) {
             <div className="quickView__banner" style={bannerStyle}>
                 <div className="quickView__content">
                     <h3 className="quickView__title">{movie?.title || movie?.name || movie?.original_title}</h3>
-                    <p>
-                     {(movie?.overview)} 
-                    </p>
+                    <p>Overview:<br/>{(movie?.overview)}</p> 
+                    <p>Language of production:  {(movie?.original_language)} </p>
+                    <p>Popularity: {(movie?.popularity)}</p> 
+                    <p>Number of votes: {(movie?.vote_count)}</p> 
                     <button className="quickView__close" onClick={popup}>
-                    <CancelIcon fontSize="large"/>
+                        <CancelIcon fontSize="large"/>
                     </button>
                 </div>
             </div>
